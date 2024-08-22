@@ -1,10 +1,20 @@
 import PropTypes from "prop-types";
 
 function NavBar({ setPokemonIndex, pokemonList }) {
+  const handlePokemonClick = (pokemon, index) => {
+    if (pokemon.name === "pikachu") {
+      alert("⚡ Pika pikaaa pi⚡!!");
+    }
+    setPokemonIndex(index);
+  };
+
   return (
     <header>
       {pokemonList.map((pokemon, index) => (
-        <button key={index} onClick={() => setPokemonIndex(index)}>
+        <button
+          key={pokemon.name}
+          onClick={() => handlePokemonClick(pokemon, index)}
+        >
           {pokemon.name}
         </button>
       ))}
